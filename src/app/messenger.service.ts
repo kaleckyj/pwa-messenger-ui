@@ -19,19 +19,19 @@ export class MessengerService {
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.usersLocalURL);
+    return this.http.get<User[]>(this.usersHerokuURL);
   }
 
   getUser(id: string): Observable<User> {
-    return this.http.get<User>(this.usersLocalURL + '/' + id);
+    return this.http.get<User>(this.usersHerokuURL + '/' + id);
   }
 
   getConv(userId: string, convId): Observable<Conversation> {
-    return this.http.get<Conversation>(this.usersLocalURL + '/' + userId + '/conversations/' + convId);
+    return this.http.get<Conversation>(this.usersHerokuURL + '/' + userId + '/conversations/' + convId);
   }
 
   getConvs(userId: string): Observable<Conversation[]> {
-    return this.http.get<Conversation[]>(this.usersLocalURL + '/' + userId + '/conversations');
+    return this.http.get<Conversation[]>(this.usersHerokuURL + '/' + userId + '/conversations');
   }
 
 }

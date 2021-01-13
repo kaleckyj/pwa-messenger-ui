@@ -26,7 +26,7 @@ export class LoginService {
 
   postLogin(usr: User): Observable<User> {
     console.log(usr);
-    return this.http.post<User>(this.usersLocalURL, JSON.stringify(usr), httpOptions);
+    return this.http.post<User>(this.usersHerokuURL, JSON.stringify(usr), httpOptions);
   }
 
 }
