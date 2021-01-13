@@ -1,0 +1,36 @@
+html, body{
+  height: 100%;
+  display: block;
+  margin: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.message {
+  padding: 2px;
+  background-color: lightblue;
+  border-radius: 5px;
+}
+
+#header {
+  background-color: lightskyblue;
+}
+
+#contacts, #conversation {
+  background-color: lightslategrey;
+  border-radius: 5px;
+}
+
+.clickable {
+  cursor: pointer;
+  background-color: lightsteelblue;
+  transition: 0.3s;
+}
+
+.clickable:hover {
+  background-color: mediumslateblue;
+}
+
+.pi {
+  color: blue;
+}

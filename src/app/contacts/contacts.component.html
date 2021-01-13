@@ -1,0 +1,24 @@
+<p-scrollPanel>
+  <h3>Conversations</h3>
+  <span id="new-conv"  class="clickable p-p-1" (click)="convSelector()"><i class="pi pi-plus-circle"></i></span>
+  <hr>
+  <div *ngFor="let conv of convs; index as i;">
+    <div class="contact p-inline p-p-1 p-mb-1 p-grid p-nogutter clickable" (click)="openConv(conv.id)">
+      <span class="p-col-1"><i class="pi pi-user"></i></span>
+      <span class="p-col-7 p-mx-2">
+        <span *ngFor="let member of conv.members; index as i;" class="">
+          {{member.name}},
+        </span>
+      </span>
+      <span class="p-col-1"><i *ngIf="false" class="pi pi-exclamation-triangle new-msg"></i></span>
+      <span class="p-col-1"><i class="pi pi-copy"></i></span>
+    </div>
+  </div>
+</p-scrollPanel>
+
+<div id="contact-selector" [hidden]="isHidden">
+  <h3>Choose contacts</h3>
+  <p-selectButton [options]="users" [(ngModel)]="selectedUsers" multiple="multiple" optionLabel="name" optionValue="id" id="contact-selectButtons"></p-selectButton>
+  <span class="clickable p-m-1 p-p-1" id="contact-submit" (click)="createConv(selectedUsers)"><i class="pi pi-check"></i></span>
+  <span class="clickable p-m-1 p-p-1" id="contact-cancel" (click)="convSelector()"><i class="pi pi-times"></i></span>
+</div>

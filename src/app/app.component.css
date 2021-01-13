@@ -1,0 +1,24 @@
+#spinner-background {
+  background-color: lightgrey;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#spinner {
+  position: absolute;
+  width: 100px;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 100;
+}
+
+#conversation {
+  position: relative;
+  height: 700px;
+  overflow-y: auto;
+}

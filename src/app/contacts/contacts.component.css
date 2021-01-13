@@ -1,0 +1,26 @@
+.contact {
+  border-radius: 5px;
+}
+
+#contact-selector {
+  position: absolute;
+  background: lightgray;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: 5%;
+  padding: 1%;
+  z-index: 100;
+  border-radius: 5px;
+  border: 1px solid lightblue;
+}
+
+#contact-submit, #contact-cancel {
+  float: right;
+}
+
+#contact-selectButtons {
+  height: 70%;
+  display: block;
+}

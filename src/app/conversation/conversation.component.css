@@ -1,0 +1,23 @@
+.max-width {
+  display: block;
+  max-width: max-content;
+}
+
+.p-flex-column { width: 100%; }
+
+.send-message {
+  position: sticky;
+  bottom: -10px;
+  width: 100%;
+}
+
+#scroll-panel {
+  height: 700px;
+  width: 100%;
+}
+
+#history {
+  overflow-y: auto;
+  height: 635px;
+  margin-bottom: 10px;
+}

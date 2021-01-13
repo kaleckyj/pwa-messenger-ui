@@ -1,0 +1,15 @@
+<div id="history">
+    <div *ngFor="let msg of currentConv.messages; index as i;">
+      <div class="message p-inline p-m-1 p-d-inline-block">
+        <span class="p-m-1 p-text-light"><em>{{msg.dateTime}}</em></span>
+        <span class="p-m-1">{{msg.from}}:</span>
+        <span class="p-m-1">{{msg.message}}</span>
+      </div>
+    </div>
+</div>
+<div class="send-message p-grid">
+  <div class="p-inputgroup p-col">
+    <input #msg type="text" pInputText placeholder="Message" (keyup)="$event.keyCode == 13 && sendMessage(msg.value)" value="">
+    <button pButton type="button" label="Send" (click)="sendMessage(msg.value)" ></button>
+  </div>
+</div>

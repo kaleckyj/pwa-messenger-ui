@@ -1,0 +1,25 @@
+<div *ngIf="currentUser !== undefined">
+
+  <app-header class="p-d-flex" id="header"></app-header>
+
+  <div *ngIf="canRenderUser">
+    <app-user [currentUser]="currentUser" class="p-md-10 p-lg-offset-1 p-d-none p-d-md-block"></app-user>
+    <div class="p-grid">
+
+      <app-contacts *ngIf="canRenderContacts" [convs]="allConvs" [users]="allUsers" (convOpened)="openConv($event)" (convCreated)="createConv($event)" class="p-md-4 p-lg-2 p-lg-offset-1 p-mr-1" id="contacts"></app-contacts>
+
+      <app-conversation *ngIf="canRenderConversation" [currentConv]="currentConv" [user]="currentUser" (sendMsg)="openConv($event)" (emitMessage)="sendMsg($event)" class="p-col-12 p-md-7 p-lg-7" id="conversation"></app-conversation>
+
+      <div class="p-md-1 p-lg-2 p-d-none p-d-md-block"></div>
+    </div>
+  </div>
+
+</div>
+
+<div id="spinner-background" *ngIf="!canRenderLogin && !canRenderUser && !canRenderContacts  && !canRenderConversation">
+  <p-progressSpinner  id="spinner"></p-progressSpinner>
+</div>
+
+<app-login *ngIf="canRenderLogin" (tryLogin)="login($event)"></app-login>
+
+

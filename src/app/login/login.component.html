@@ -1,0 +1,17 @@
+<h2>Login</h2>
+<div class="p-grid p-fluid">
+    <div class="p-col-12 p-md-4">
+        <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <input #username type="text" pInputText placeholder="Username">
+            <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
+            <input #password type="password" pInputText placeholder="Password">
+            <button pButton type="button" label="Login" (click)="login(username.value, password.value)"></button>
+        </div>
+    </div>
+</div>
+<hr>
+<h3>Users</h3>
+<p>Honza:1234</p>
+<p>Petr:1234</p>
+<p>Tereza:1234</p>
