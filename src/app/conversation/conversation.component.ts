@@ -29,6 +29,7 @@ export class ConversationComponent implements OnInit {
       this.lastMsg.from = this.user.name;
       this.lastMsg.dateTime = (new Date).toLocaleString();
       this.lastMsg.message = msg;
+      if (this.currentConv.messages === undefined) {this.currentConv.messages = [];}
       this.currentConv.messages.push(this.lastMsg);
 
       this.emitMessage.emit(this.lastMsg);

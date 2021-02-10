@@ -20,7 +20,7 @@ export class MessengerService {
   usersMockURL = 'https://private-6e909-pwakalecky.apiary-mock.com/users';
   usersLocalURL = 'http://localhost:4000/users';
   usersHerokuURL = 'https://pwa-kalecky-api.herokuapp.com/users';
-  URL = this.usersHerokuURL;
+  URL = this.usersLocalURL;
 
   constructor(private http: HttpClient) { }
 
@@ -45,8 +45,8 @@ export class MessengerService {
        from: msg.from, dateTime: msg.dateTime, message: msg.message}, httpOptions).subscribe();
   }
 
-  createConv(userId: string, convId: string, members: {}): void {
-    this.http.post<Object>(this.URL + '/' + userId + '/conversations', {id: convId, members: members}, httpOptions).subscribe();
+  createConv(userId: string, members: {}): Observable<Conversation> {
+    return this.http.post<Conversation>(this.URL + '/' + userId + '/conversations', {members: members}, httpOptions);
   }
 
 }

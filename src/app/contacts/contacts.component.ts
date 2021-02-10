@@ -9,7 +9,7 @@ import { User } from '../user/user';
 })
 export class ContactsComponent implements OnInit {
   isHidden = true;
-  selectedUsers: User[];
+  selectedUsers: string[];
   newConv: Conversation;
 
   @Input() user: User;
@@ -33,9 +33,10 @@ export class ContactsComponent implements OnInit {
     this.isHidden = !this.isHidden;
   }
 
-  createConv(users: User[]) {
+  createConv(users: string[]) {
     this.convSelector();
     this.selectedUsers = users;
+    //console.log(this.selectedUsers);
     this.saveConv();
   }
 
@@ -43,11 +44,12 @@ export class ContactsComponent implements OnInit {
     this.newConv = new Conversation;
     this.newConv.id = "";
     this.newConv.members = [this.user.id];
-    this.selectedUsers.forEach(user => {
-      this.newConv.members.push(user.id);
-    });
-    this.newConv.messages = [];
-    //console.log("saving conv " + this.newConv);
+    //console.log(this.selectedUsers);
+    for (let i = 0; i < this.selectedUsers.length; i++) {
+      this.newConv.members.push(this.selectedUsers[i]);
+    }
+    //console.log("saving conv ");
+    //console.log(this.newConv);
     this.convCreated.emit(this.newConv);
   }
 

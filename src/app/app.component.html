@@ -6,9 +6,9 @@
     <app-user [currentUser]="currentUser" class="p-md-10 p-lg-offset-1 p-d-none p-d-md-block"></app-user>
     <div class="p-grid">
 
-      <app-contacts *ngIf="canRenderContacts" [convs]="allConvs" [users]="allUsers" [user]="currentUser" (convOpened)="openConv($event)" (convCreated)="createConv($event)" class="p-md-4 p-lg-2 p-lg-offset-1 p-mr-1" id="contacts"></app-contacts>
+      <app-contacts *ngIf="canRenderContacts" [convs]="allConvs" [users]="otherUsers" [user]="currentUser" (convOpened)="getConv($event)" (convCreated)="createConv($event)" class="p-md-4 p-lg-2 p-lg-offset-1 p-mr-1" id="contacts"></app-contacts>
 
-      <app-conversation *ngIf="canRenderConversation" [currentConv]="currentConv" [user]="currentUser" (sendMsg)="openConv($event)" (emitMessage)="sendMsg($event)" class="p-col-12 p-md-7 p-lg-7" id="conversation"></app-conversation>
+      <app-conversation *ngIf="canRenderConversation" [currentConv]="currentConv" [user]="currentUser" (sendMsg)="getConv($event)" (emitMessage)="sendMsg($event)" class="p-col-12 p-md-7 p-lg-7" id="conversation"></app-conversation>
 
       <div class="p-md-1 p-lg-2 p-d-none p-d-md-block"></div>
     </div>
