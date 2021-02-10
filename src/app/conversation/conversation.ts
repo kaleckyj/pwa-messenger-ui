@@ -3,6 +3,6 @@ import {Message} from '../message/message';
 
 export class Conversation {
   id: string;
-  members: User[];
+  members: string[];
   messages: Message[];
 }

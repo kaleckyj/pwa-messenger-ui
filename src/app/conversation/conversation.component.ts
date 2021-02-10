@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Conversation } from './conversation';
 import { Message } from '../message/message';
 import { User } from '../user/user';
-import { last } from 'rxjs/operators';
 
 @Component({
   selector: 'app-conversation',
@@ -11,6 +10,7 @@ import { last } from 'rxjs/operators';
 })
 export class ConversationComponent implements OnInit {
   lastMsg: Message;
+  textValue: String;
 
   @Input() user: User;
   @Input() currentConv: Conversation;
@@ -24,12 +24,16 @@ export class ConversationComponent implements OnInit {
   }
 
   sendMessage(msg: string): void {
-    this.lastMsg = new Message;
-    this.lastMsg.from = this.user.name;
-    this.lastMsg.dateTime = (new Date).toLocaleString();
-    this.lastMsg.message = msg;
-    this.currentConv.messages.push(this.lastMsg);
+    if (msg.replace(" ", "").length >= 1) {
+      this.lastMsg = new Message;
+      this.lastMsg.from = this.user.name;
+      this.lastMsg.dateTime = (new Date).toLocaleString();
+      this.lastMsg.message = msg;
+      this.currentConv.messages.push(this.lastMsg);
 
-    this.emitMessage.emit(this.lastMsg);
+      this.emitMessage.emit(this.lastMsg);
+      this.textValue = "";
+
+    }
   }
 }

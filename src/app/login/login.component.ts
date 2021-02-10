@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   login(usr: string, pw: string) {
     this.tryUser = {
-      id: "",
+      id: "-1",
       name: usr,
       password: pw
     }

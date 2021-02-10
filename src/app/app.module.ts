@@ -9,16 +9,12 @@ import {ScrollPanelModule} from 'primeng/scrollpanel';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {SelectButtonModule} from 'primeng/selectbutton';
 
-import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
-
 import { AppComponent } from './app.component';
 import { ConversationComponent } from './conversation/conversation.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 import { HeaderComponent } from './header/header.component';
 import { ContactsComponent } from './contacts/contacts.component';
-
-const config: SocketIoConfig = { url: 'https://pwa-kalecky-api.herokuapp.com/', options: {} };
 
 @NgModule({
   declarations: [
@@ -33,7 +29,6 @@ const config: SocketIoConfig = { url: 'https://pwa-kalecky-api.herokuapp.com/', 
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    SocketIoModule.forRoot(config),
     ButtonModule,
     InputTextModule,
     ScrollPanelModule,

@@ -9,7 +9,7 @@
 </div>
 <div class="send-message p-grid">
   <div class="p-inputgroup p-col">
-    <input #msg type="text" pInputText placeholder="Message" (keyup)="$event.keyCode == 13 && sendMessage(msg.value)" value="">
+    <input #msg type="text" pInputText placeholder="Message" (keyup)="$event.keyCode == 13 && sendMessage(msg.value)" value="" [(ngModel)]="textValue">
     <button pButton type="button" label="Send" (click)="sendMessage(msg.value)" ></button>
   </div>
 </div>

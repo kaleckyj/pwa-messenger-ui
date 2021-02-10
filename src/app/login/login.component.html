@@ -5,7 +5,7 @@
             <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
             <input #username type="text" pInputText placeholder="Username">
             <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
-            <input #password type="password" pInputText placeholder="Password">
+            <input #password type="password" (keyup)="$event.keyCode == 13 && login(username.value, password.value)" pInputText placeholder="Password">
             <button pButton type="button" label="Login" (click)="login(username.value, password.value)"></button>
         </div>
     </div>
@@ -15,3 +15,5 @@
 <p>Honza:1234</p>
 <p>Petr:1234</p>
 <p>Tereza:1234</p>
+<p>Martin:1234</p>
+<p>Petra:1234</p>

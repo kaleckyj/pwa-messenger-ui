@@ -1,29 +1,35 @@
 import { Injectable } from '@angular/core';
-import { Socket } from 'ngx-socket-io';
 import { Message } from '../message/message';
-import { Conversation } from '../conversation/conversation';
-
 import { Observable } from 'rxjs';
+import * as io from 'socket.io-client/dist/socket.io';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WebsocketService {
+  socket: any;
 
-  newMsg = this.socket.fromEvent<Message>('Message');
+  localURI: string = 'http://localhost:4000';
+  herokuURI: string = 'https://pwa-kalecky-api.herokuapp.com';
+  URI: string = this.herokuURI;
 
-  constructor(private socket: Socket) { }
-
+  constructor() {
+    this.socket = io(this.URI, {transports: ['websocket', 'polling', 'flashsocket']});
+  }
 
   getMsg() {
-    return Observable.create((observer) => {
-      this.socket.on('message', (msg) => {
-          observer.next(msg);
+    return new Observable((observer) => {
+      this.socket.on('message', (data) => {
+        //console.log("listened to message: ")
+        //console.log(data);
+        observer.next(data);
       });
     });
   }
 
-  sendMsg(msg: Message) {
-    this.socket.emit('message', msg);
+  sendMsg(data: Message) {
+    //console.log("emitting message: ")
+    //console.log(data);
+    this.socket.emit('message', data);
   }
 }

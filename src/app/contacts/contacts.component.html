@@ -7,8 +7,10 @@
       <span class="p-col-1"><i class="pi pi-user"></i></span>
       <span class="p-col-7 p-mx-2">
         <span *ngFor="let member of conv.members; index as i;" class="">
-          {{member.name}},
+          <ng-container *ngIf="i + 1 != conv.members.length; else elseBlock">{{member}}, </ng-container>
+          <ng-template #elseBlock>{{member}}</ng-template>
         </span>
+
       </span>
       <span class="p-col-1"><i *ngIf="false" class="pi pi-exclamation-triangle new-msg"></i></span>
       <span class="p-col-1"><i class="pi pi-copy"></i></span>

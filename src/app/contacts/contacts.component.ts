@@ -12,6 +12,7 @@ export class ContactsComponent implements OnInit {
   selectedUsers: User[];
   newConv: Conversation;
 
+  @Input() user: User;
   @Input() users: User[];
   @Input() convs: Conversation[];
 
@@ -34,18 +35,19 @@ export class ContactsComponent implements OnInit {
 
   createConv(users: User[]) {
     this.convSelector();
-    console.log(this.selectedUsers);
     this.selectedUsers = users;
-    console.log(this.selectedUsers);
     this.saveConv();
   }
 
   saveConv() {
     this.newConv = new Conversation;
     this.newConv.id = "";
-    this.newConv.members = this.selectedUsers;
+    this.newConv.members = [this.user.id];
+    this.selectedUsers.forEach(user => {
+      this.newConv.members.push(user.id);
+    });
     this.newConv.messages = [];
-    console.log("saving conv " + this.newConv);
+    //console.log("saving conv " + this.newConv);
     this.convCreated.emit(this.newConv);
   }
 
