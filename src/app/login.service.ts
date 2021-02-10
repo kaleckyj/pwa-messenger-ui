@@ -7,7 +7,7 @@ import { User } from './user/user';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json'
+    'Content-Type':  'application/json',
   })
 };
 
@@ -18,7 +18,7 @@ export class LoginService {
   usersMockURL = 'https://private-6e909-pwakalecky.apiary-mock.com/login';
   usersLocalURL = 'http://localhost:4000/login';
   usersHerokuURL = 'https://pwa-kalecky-api.herokuapp.com/login';
-  URL = this.usersLocalURL;
+  URL = this.usersHerokuURL;
 
   constructor(private http: HttpClient) { }
 
